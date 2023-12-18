@@ -1,0 +1,42 @@
+.input {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  .input_block {
+    position: relative;
+    width: 174px;
+    input {
+      width: 150px;
+      height: 30px;
+      border-radius: 8px;
+      border: none;
+      padding: 0 12px;
+      outline: none;
+
+      &:hover,
+      &:focus {
+        background-color: #d8d8d8;
+      }
+    }
+
+    button {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 2px;
+      right: 0;
+      cursor: pointer;
+
+      SVG {
+        color: #acacac;
+      }
+    }
+  }
+  .add {
+  }
+}
