@@ -2,10 +2,13 @@ import React from "react";
 import styles from "./Input.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementValue } from "../store/input";
+import { addTask } from "../store/added";
 export function Input() {
+  // читаем
   const stateInput = useSelector((state) => state.stateInput.value);
+  //записываем
   const dispatch = useDispatch();
-  console.log("I");
+  // console.log("I");
   return (
     <div className={styles.input}>
       <div className={styles.input_block}>
@@ -21,13 +24,13 @@ export function Input() {
               dispatch(incrementValue(""));
             }}>
             <svg
-              class="feather feather-x"
+              className="feather feather-x"
               fill="none"
               height="24"
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
-              stroke-width="2"
+              strokeWidth="2"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +41,14 @@ export function Input() {
         </label>
       </div>
 
-      <button className={`${styles.add} button`}>Добавить</button>
+      <button
+        onClick={() => {
+          dispatch(addTask(stateInput));
+          dispatch(incrementValue(""));
+        }}
+        className={`${styles.add} button`}>
+        Добавить
+      </button>
     </div>
   );
 }

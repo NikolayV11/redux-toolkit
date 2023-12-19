@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: [],
+  value: "",
+  id: 0,
 };
 
 export const stateSliceAdded = createSlice({
@@ -9,24 +10,15 @@ export const stateSliceAdded = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      state.value.push({ title: action.payload, status: false, id: state.value.length - 1 });
-      console.log(action.payload, "value");
-    },
-    changeStatus: (state, action) => {
-      state.value = state.value.map((item) => {
-        if (item.id === action.payload) {
-          item.status = true;
-        }
-      });
-    },
-    deleteTask: (state, action) => {
-      state.value.filter((item) => {
-        return item.id !== action.payload;
-      });
+      if (action.payload !== "") {
+        state.value = action.payload;
+        // console.log(action.payload);
+        state.id += 1;
+      }
     },
   },
 });
 
-export const { addTask, changeStatus, deleteTask } = stateSliceAdded.actions;
+export const { addTask } = stateSliceAdded.actions;
 
 export default stateSliceAdded.reducer;

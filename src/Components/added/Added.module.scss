@@ -9,9 +9,27 @@
     padding: 2px;
     justify-content: center;
     align-items: center;
+    .title_p_active {
+      color: aqua;
+      text-decoration: line-through;
+    }
+  }
+  &__title_active {
+    background-color: #707070;
+    border-radius: 8px;
   }
   &__block {
     display: flex;
     gap: 5px;
+  }
+  .button_active {
+    cursor: default;
+    background-color: #575757f5;
+    color: azure;
+  }
+}
+.block_button_delete {
+  &:hover {
+    background-color: red;
   }
 }

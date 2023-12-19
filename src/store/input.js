@@ -10,7 +10,6 @@ export const stateSliceInput = createSlice({
   reducers: {
     incrementValue: (state, action) => {
       state.value = action.payload;
-      console.log(action.payload, "value");
     },
   },
 });
